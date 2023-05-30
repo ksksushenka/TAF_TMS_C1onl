@@ -13,6 +13,7 @@
         <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="NLog" Version="5.1.4" />
         <PackageReference Include="NUnit" Version="3.13.3" />
         <PackageReference Include="NUnit.Allure" Version="1.2.1.1" />
