@@ -1,5 +1,5 @@
+using NLog;
 using NUnit.Allure.Attributes;
-using NUnit.Framework.Internal;
 using OpenQA.Selenium;
 using TAF_TMS_C1onl.Models;
 using TAF_TMS_C1onl.Pages;
@@ -8,6 +8,8 @@ namespace TAF_TMS_C1onl.Steps;
 
 public class NavigationSteps : BaseStep
 {
+    private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
+    
     public NavigationSteps(IWebDriver driver) : base(driver) { }
 
 

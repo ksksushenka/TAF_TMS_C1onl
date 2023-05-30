@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<stucture>
+    <item id = "1">
+        <age type="integer">1</age>
+        <firstname>Alex</firstname>
+        <isActive>true</isActive>
+        <object>null</object>
+        <object>
+            <lastname>Trostyanko</lastname>
+            <department>GM</department>
+        </object>
+    </item>
+    <item id = "2">
+        <age type="integer">1</age>
+        <firstname>Alex</firstname>
+        <isActive>true</isActive>
+        <object>null</object>
+        <object>
+            <lastname>Trostyanko</lastname>
+            <department>GM</department>
+        </object>
+    </item>
+</stucture>
+

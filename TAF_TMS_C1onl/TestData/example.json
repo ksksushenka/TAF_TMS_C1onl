@@ -1,0 +1,21 @@
+{
+  "age" : 1,
+  "firstname" : "Alex",
+  "isActive" : true,
+  "object" : null,
+  "user" : {
+    "lastname" : "Trostyanko",
+    "department" : "GM"
+  },
+  "array" : [
+    {
+      "id" : 1
+    },
+    {
+      "id" : 2
+    },
+    {
+      "id" : 3
+    }
+  ]
+}
