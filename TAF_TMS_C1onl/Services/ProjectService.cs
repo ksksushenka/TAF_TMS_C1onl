@@ -46,16 +46,7 @@ public class ProjectService : BaseService
         
         return _apiClient.ExecuteAsync<Project>(request).Result;
     }
-
-    public List<Project> GetProjects()
-    {
-        var request = new RestRequest("index.php?/api/v2/get_projects", Method.Get);
-        var response = _apiClient.Execute(request);
-        var json = JObject.Parse(response.Content).SelectToken("$.projects");
-        
-        var itemList = deserializer.Deserialize<List<Project>>(response);
-    }
-
+    
     public Task<Project> AddProjectAsync(Project project)
     {
         var request = new RestRequest("index.php?/api/v2/add_project", Method.Post)

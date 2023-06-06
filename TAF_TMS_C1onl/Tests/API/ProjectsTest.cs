@@ -78,7 +78,7 @@ public class ProjectsTest : BaseApiTest
     public void GetProjectTest_5()
     {
         var actualProject = _projectService.GetAsProjectAsync("1");
-        _logger.Info("jsonObject2 -> name: " + actualProject.Result.Name);
+        _logger.Info("jsonObject2 -> name: " + actualProject.Name);
     }
 
     [Test]
