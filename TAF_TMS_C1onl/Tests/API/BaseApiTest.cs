@@ -8,6 +8,7 @@ public class BaseApiTest
     protected ApiClient _apiClient;
     protected ProjectService _projectService;
     protected CaseService _caseService;
+    protected MilestoneService _milestoneService;
 
     [OneTimeSetUp]
     public void InitApiClient()
@@ -15,5 +16,6 @@ public class BaseApiTest
         _apiClient = new ApiClient();
         _projectService = new ProjectService(_apiClient);
         _caseService = new CaseService(_apiClient);
+        _milestoneService = new MilestoneService(_apiClient);
     }
 }
