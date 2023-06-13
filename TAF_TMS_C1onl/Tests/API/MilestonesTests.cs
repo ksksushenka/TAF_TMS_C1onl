@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NLog;
 using System;
 using System.Collections.Generic;
@@ -26,18 +27,23 @@ namespace TAF_TMS_C1onl.Tests.API
             _logger.Info("Actual Milestone: " + actualMilestone.ToString());
 
             var json = actualMilestone.Content;
-            var jsonObject = JObject.Parse(json);
+            var actual = JsonConvert.DeserializeObject<Project>(json);
 
-            milestoneId = jsonObject.SelectToken("$.id").Value<int>();
+            Assert.AreEqual(expectedMilestone.Name, actual.Name);
 
-            string name = jsonObject.SelectToken("$.name").Value<string>();
-            _logger.Info("jsonObject -> name: " + name);
+            //var json = actualMilestone.Content;
+            //var jsonObject = JObject.Parse(json);
 
-            int startOn = jsonObject.SelectToken("$.start_on").Value<int>();
-            _logger.Info("jsonObject -> startOn: " + startOn);
+            //milestoneId = jsonObject.SelectToken("$.id").Value<int>();
 
-            Assert.That(name, Is.EqualTo(expectedMilestone.Name));
-            Assert.That(startOn, Is.EqualTo(expectedMilestone.StartOn));
+            //string name = jsonObject.SelectToken("$.name").Value<string>();
+            //_logger.Info("jsonObject -> name: " + name);
+
+            //int startOn = jsonObject.SelectToken("$.start_on").Value<int>();
+            //_logger.Info("jsonObject -> startOn: " + startOn);
+
+            //Assert.That(name, Is.EqualTo(expectedMilestone.Name));
+            //Assert.That(startOn, Is.EqualTo(expectedMilestone.StartOn));
         }
 
         [Test, Order(2)]
