@@ -31,14 +31,14 @@ namespace TAF_TMS_C1onl.Services
             return _apiClient.Execute(request);
         }
 
-        public RestResponse UpdateCase(Case testCase, int caseId)
+        public Case UpdateCase(Case testCase, int caseId)
         {
             var request = new RestRequest(Endpoints.UPDATE_CASE, Method.Post)
                 .AddUrlSegment("case_id", caseId)
                 .AddHeader("Content-Type", "application/json")
                 .AddBody(testCase);
 
-            return _apiClient.Execute(request);
+            return _apiClient.Execute<Case>(request);
         }
 
         public RestResponse DeleteCase(int caseId)

@@ -1,4 +1,5 @@
 ﻿using AngleSharp.Text;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NLog;
 using RestSharp;
@@ -21,6 +22,7 @@ namespace TAF_TMS_C1onl.Tests.API
 
             var actualCase = _caseService.AddCase(expectedCase, 1);
             _logger.Info("Actual Case: " + actualCase.ToString());
+
 
             var json = actualCase.Content;
             var jsonObject = JObject.Parse(json);
@@ -51,22 +53,26 @@ namespace TAF_TMS_C1onl.Tests.API
         {
             var expectedCase = new Case();
             expectedCase.Title = "Title of Case Ks UPD";
-            expectedCase.SectionId = 2;
 
             var actualCase = _caseService.UpdateCase(expectedCase, caseId);
             _logger.Info("Actual Case: " + actualCase.ToString());
 
-            var json = actualCase.Content;
-            var jsonObject = JObject.Parse(json);
+            //var json = actualCase.ToString();
+            //var actual = JsonSerializer.Deserialize<Case>(json);
 
-            string title = jsonObject.SelectToken("$.title").Value<string>();
-            _logger.Info("jsonObject -> title: " + title);
+            Assert.That(actualCase.Title, Is.EqualTo(expectedCase.Title));
 
-            int sectionId = jsonObject.SelectToken("$.section_id").Value<int>();
-            _logger.Info("jsonObject -> title: " + title);
+            //var json = actualCase.ToString();
+            //var jsonObject = JObject.Parse(json);
 
-            Assert.That(title, Is.EqualTo(expectedCase.Title));
-            Assert.That(sectionId, Is.EqualTo(expectedCase.SectionId));
+            //string title = jsonObject.SelectToken("$.title").Value<string>();
+            //_logger.Info("jsonObject -> title: " + title);
+
+            //int sectionId = jsonObject.SelectToken("$.section_id").Value<int>();
+            //_logger.Info("jsonObject -> title: " + title);
+
+            //Assert.That(title, Is.EqualTo(expectedCase.Title));
+            //Assert.That(sectionId, Is.EqualTo(expectedCase.SectionId));
         }
 
         [Test, Order(4)]

@@ -23,27 +23,22 @@ namespace TAF_TMS_C1onl.Tests.API
             expectedMilestone.Name = "Name of milestone Ks";
             expectedMilestone.StartOn = 1391968184;
 
-            var actualMilestone = _milestoneService.AddMilestone(expectedMilestone, 142);
+            var actualMilestone = _milestoneService.AddMilestone(expectedMilestone, 19);
             _logger.Info("Actual Milestone: " + actualMilestone.ToString());
 
             var json = actualMilestone.Content;
-            var actual = JsonConvert.DeserializeObject<Project>(json);
+            var jsonObject = JObject.Parse(json);
 
-            Assert.AreEqual(expectedMilestone.Name, actual.Name);
+            milestoneId = jsonObject.SelectToken("$.id").Value<int>();
 
-            //var json = actualMilestone.Content;
-            //var jsonObject = JObject.Parse(json);
+            string name = jsonObject.SelectToken("$.name").Value<string>();
+            _logger.Info("jsonObject -> name: " + name);
 
-            //milestoneId = jsonObject.SelectToken("$.id").Value<int>();
+            int startOn = jsonObject.SelectToken("$.start_on").Value<int>();
+            _logger.Info("jsonObject -> startOn: " + startOn);
 
-            //string name = jsonObject.SelectToken("$.name").Value<string>();
-            //_logger.Info("jsonObject -> name: " + name);
-
-            //int startOn = jsonObject.SelectToken("$.start_on").Value<int>();
-            //_logger.Info("jsonObject -> startOn: " + startOn);
-
-            //Assert.That(name, Is.EqualTo(expectedMilestone.Name));
-            //Assert.That(startOn, Is.EqualTo(expectedMilestone.StartOn));
+            Assert.That(name, Is.EqualTo(expectedMilestone.Name));
+            Assert.That(startOn, Is.EqualTo(expectedMilestone.StartOn));
         }
 
         [Test, Order(2)]

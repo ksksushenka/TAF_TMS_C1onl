@@ -85,7 +85,7 @@ public class ProjectsTest : BaseApiTest
     public void AddProjectTest_1()
     {
         var expectedProject = new Project();
-        expectedProject.Name = "Test Project 2";
+        expectedProject.Name = "Test Project Kseniya";
         expectedProject.Announcement = "Description Test Project 2";
         expectedProject.SuiteMode = 2;
         

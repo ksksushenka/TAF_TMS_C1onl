@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AngleSharp.Css;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace TAF_TMS_C1onl.Models
 {
     public class Case
     {
-        [JsonPropertyName("section_id")] public int SectionId { get; set; } 
-        [JsonPropertyName("title")] public string Title { get; set; } 
+        public int SectionId { get; set; }
+        [JsonPropertyName("title")] public string Title { get; set; }
     }
 }
