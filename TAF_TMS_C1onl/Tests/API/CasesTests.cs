@@ -57,22 +57,7 @@ namespace TAF_TMS_C1onl.Tests.API
             var actualCase = _caseService.UpdateCase(expectedCase, caseId);
             _logger.Info("Actual Case: " + actualCase.ToString());
 
-            //var json = actualCase.ToString();
-            //var actual = JsonSerializer.Deserialize<Case>(json);
-
             Assert.That(actualCase.Title, Is.EqualTo(expectedCase.Title));
-
-            //var json = actualCase.ToString();
-            //var jsonObject = JObject.Parse(json);
-
-            //string title = jsonObject.SelectToken("$.title").Value<string>();
-            //_logger.Info("jsonObject -> title: " + title);
-
-            //int sectionId = jsonObject.SelectToken("$.section_id").Value<int>();
-            //_logger.Info("jsonObject -> title: " + title);
-
-            //Assert.That(title, Is.EqualTo(expectedCase.Title));
-            //Assert.That(sectionId, Is.EqualTo(expectedCase.SectionId));
         }
 
         [Test, Order(4)]
