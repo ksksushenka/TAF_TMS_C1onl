@@ -45,6 +45,24 @@ namespace TAF_TMS_C1onl.Utilites.Configuration
             }
         }
 
+        public static DbSettings DbSettings
+        {
+            get
+            {
+                var dbSettings = new DbSettings();
+                var child = Configuration.GetSection("DbSettings");
+
+                dbSettings.Driver = child["DB_Driver"];
+                dbSettings.Server = child["DB_Server"];
+                dbSettings.Port = child["DB_Port"];
+                dbSettings.Schema = child["DB_Schema"];
+                dbSettings.Username = child["DB_Username"];
+                dbSettings.Password = child["DB_Password"];
+
+                return dbSettings;
+            }
+        }
+
         public static List<User?> Users
         {
             get
